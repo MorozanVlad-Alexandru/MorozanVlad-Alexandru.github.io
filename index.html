@@ -1,75 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Morozan Vlad-Alexandru - V2 Administrator</title>
+  <title>Morozan Vlad-Alexandru</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
+    html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; }
-    .fade-in { animation: fadeIn 1.2s ease-out both; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
-<body class="bg-gray-950 text-white">
+<body class="bg-gray-900 text-white">
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col justify-center items-center text-center px-4" id="home">
+    <h1 class="text-4xl md:text-6xl font-bold" data-aos="fade-down">Morozan Vlad-Alexandru</h1>
+    <p class="mt-4 text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Voice & Video Administrator</p>
+    <p class="mt-2 text-md text-gray-500" data-aos="fade-up" data-aos-delay="400">Specializat în CUCM, CUBE, SBC, PexIP & rețelistică Cisco</p>
+    <a href="#contact" class="mt-8 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-gray-900 transition" data-aos="zoom-in" data-aos-delay="600">Contactează-mă</a>
+  </section>
 
-  <section class="min-h-screen flex items-center justify-center p-6">
-    <div class="max-w-4xl w-full fade-in">
+  <!-- About Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16" id="about">
+    <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">Despre mine</h2>
+    <p class="text-gray-300 leading-relaxed" data-aos="fade-up">
+      Sunt administrator V2 cu experiență practică în sisteme complexe de comunicații unificate. Am lucrat extensiv cu tehnologii enterprise precum Cisco CUCM, CUBE, SBC, PexIP și echipamente de rețea (routere, switchuri).
+    </p>
+  </section>
 
-      <h1 class="text-4xl md:text-6xl font-extrabold text-center text-indigo-400 mb-4">Morozan Vlad-Alexandru</h1>
-      <p class="text-center text-lg md:text-xl text-gray-300">Voice & Video Administrator • Cisco Networking Specialist</p>
-
-      <div class="mt-12 bg-gray-900/70 rounded-xl shadow-xl p-6 md:p-10 space-y-8">
-        <section>
-          <h2 class="text-2xl font-semibold text-indigo-300 mb-2">Despre mine</h2>
-          <p class="text-gray-300 leading-relaxed">
-            Sunt administrator V2 (Voice and Video) cu experiență în sisteme Cisco și infrastructură de rețea. Am lucrat cu tehnologii precum CUCM, CUBE, SBC, PexIP și sunt pasionat de comunicare eficientă și soluții scalabile pentru infrastructura de voce și video.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-semibold text-indigo-300 mb-2">Experiență</h2>
-          <ul class="space-y-4 text-gray-300">
-            <li>
-              <strong>V2 Administrator</strong> – Companie Telecom (2021–prezent)<br />
-              Administrare și mentenanță pentru infrastructura de voce (CUCM, SBC, CUBE, Webex).
-            </li>
-            <li>
-              <strong>Network Engineer</strong> – Proiecte Cisco (2018–2021)<br />
-              Configurare și suport pentru switchuri, routere și firewalluri.
-            </li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-semibold text-indigo-300 mb-2">Competențe</h2>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">CUCM</span>
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">CUBE</span>
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">SBC</span>
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">PexIP</span>
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">Cisco Switches</span>
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">Cisco Routers</span>
-            <span class="bg-indigo-800 text-indigo-100 px-3 py-1 rounded-full text-sm">Networking</span>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="text-2xl font-semibold text-indigo-300 mb-2">Contact</h2>
-          <ul class="text-gray-300">
-            <li>Email: <a href="mailto:vlad@example.com" class="text-indigo-400 hover:underline">vlad@example.com</a></li>
-            <li>LinkedIn: <a href="#" class="text-indigo-400 hover:underline">linkedin.com/in/morozanvlad</a></li>
-            <li>GitHub: <a href="https://github.com/morozanvlad-alexandru" class="text-indigo-400 hover:underline">morozanvlad-alexandru</a></li>
-          </ul>
-        </section>
+  <!-- Skills Section -->
+  <section class="bg-gray-800 py-16" id="skills">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold mb-6 text-center" data-aos="fade-up">Competențe</h2>
+      <div class="flex flex-wrap justify-center gap-3 text-sm" data-aos="fade-up" data-aos-delay="200">
+        <span class="bg-gray-700 px-4 py-2 rounded-full">CUCM</span>
+        <span class="bg-gray-700 px-4 py-2 rounded-full">Cisco CUBE</span>
+        <span class="bg-gray-700 px-4 py-2 rounded-full">SBC</span>
+        <span class="bg-gray-700 px-4 py-2 rounded-full">PexIP</span>
+        <span class="bg-gray-700 px-4 py-2 rounded-full">Routing</span>
+        <span class="bg-gray-700 px-4 py-2 rounded-full">Switching</span>
+        <span class="bg-gray-700 px-4 py-2 rounded-full">Troubleshooting</span>
       </div>
-
     </div>
   </section>
 
+  <!-- Projects Section -->
+  <section class="max-w-4xl mx-auto px-4 py-16" id="projects">
+    <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">Proiecte</h2>
+    <ul class="space-y-6">
+      <li data-aos="fade-up">
+        <h3 class="text-xl font-semibold">Implementare infrastructură CUCM + PexIP</h3>
+        <p class="text-gray-400">Soluție completă de comunicații video pentru 500+ utilizatori.</p>
+      </li>
+      <li data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-semibold">Migrare SBC + configurare Cisco CUBE</h3>
+        <p class="text-gray-400">Optimizare și securizare a interconectărilor VoIP.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="bg-gray-800 py-16" id="contact">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-down">Contact</h2>
+      <p class="text-gray-400 mb-4" data-aos="fade-up">Îți pot oferi suport și consultanță pentru proiectele tale de infrastructură voce & video.</p>
+      <p class="text-gray-300" data-aos="fade-up" data-aos-delay="200">✉️ <a href="mailto:vlad@exemplu.com" class="underline text-white">vlad@exemplu.com</a></p>
+      <p class="text-gray-300" data-aos="fade-up" data-aos-delay="300">🐙 <a href="https://github.com/morozanvlad-alexandru" class="underline text-white" target="_blank">github.com/morozanvlad-alexandru</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-gray-600 text-sm py-6 bg-gray-900 border-t border-gray-700">
+    © 2025 Morozan Vlad-Alexandru. Toate drepturile rezervate.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>

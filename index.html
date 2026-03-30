@@ -1,107 +1,618 @@
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Morozan Vlad-Alexandru</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+  <title>Morozan Vlad-Alexandru | Voice & Video Administrator</title>
+  <meta name="description" content="CV online pentru Morozan Vlad-Alexandru - Voice & Video Administrator specializat în CUCM, CUBE, SBC și PexIP." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    #tsparticles {
-      position: absolute;
+    :root {
+      --bg: #f4f1e7;
+      --surface: #fffcf5;
+      --ink: #15202b;
+      --muted: #4f5f6f;
+      --line: #d7d0c2;
+      --accent: #0f766e;
+      --accent-strong: #115e59;
+      --accent-soft: #d6f5ef;
+      --highlight: #f97316;
+      --highlight-soft: #ffe4cf;
+      --max-width: 1120px;
+      --shadow: 0 12px 30px rgba(21, 32, 43, 0.12);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Source Sans 3", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 10% 20%, #fff6df 0%, rgba(255, 246, 223, 0) 45%),
+                  radial-gradient(circle at 90% 0%, #d6f5ef 0%, rgba(214, 245, 239, 0) 40%),
+                  var(--bg);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      opacity: 0.08;
+      background-image: radial-gradient(#000 0.6px, transparent 0.6px);
+      background-size: 3px 3px;
+      z-index: -1;
+    }
+
+    .wrap {
+      width: min(var(--max-width), calc(100% - 2.5rem));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(244, 241, 231, 0.8);
+      border-bottom: 1px solid rgba(215, 208, 194, 0.85);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.9rem 0;
+    }
+
+    .brand {
+      font-family: "Sora", sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      transition: background 220ms ease, color 220ms ease;
+    }
+
+    nav a:hover {
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .hero {
+      padding: clamp(2.5rem, 3vw, 4rem) 0 clamp(2.5rem, 5vw, 5rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 330px minmax(0, 1fr);
+      gap: clamp(1.6rem, 3vw, 3rem);
+      align-items: center;
+    }
+
+    .profile-card {
+      background: linear-gradient(160deg, #fff8ea, #eefbf8);
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+      transform: translateY(0);
+      transition: transform 300ms ease;
+    }
+
+    .profile-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .portrait-shell {
+      aspect-ratio: 1;
+      border-radius: 18px;
+      padding: 0.5rem;
+      background: linear-gradient(140deg, var(--accent), var(--highlight));
+    }
+
+    .portrait-shell img {
       width: 100%;
       height: 100%;
-      z-index: -1;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .profile-meta {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.45rem;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .profile-meta strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 0.86rem;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Sora", sans-serif;
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5.6vw, 4rem);
+      margin-top: 0.85rem;
+    }
+
+    .intro {
+      margin-top: 1.1rem;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: clamp(1.06rem, 2vw, 1.2rem);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1.2rem;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 0.34rem 0.78rem;
+      background: var(--surface);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.7rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 0.72rem 1.1rem;
+      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+      border: 1px solid transparent;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 10px 20px rgba(15, 118, 110, 0.28);
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-2px);
+      background: var(--accent-strong);
+    }
+
+    .btn.secondary {
+      border-color: var(--line);
+      color: var(--ink);
+      background: var(--surface);
+    }
+
+    .btn.secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-grid {
+      margin-top: 1.9rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      padding: 0.85rem;
+    }
+
+    .stat strong {
+      font-family: "Sora", sans-serif;
+      font-size: 1.4rem;
+      display: block;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    section {
+      padding: clamp(2.3rem, 4.7vw, 4rem) 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(21, 32, 43, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.06rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .timeline-item {
+      background: linear-gradient(180deg, #fffdf8 0%, #fffaf1 100%);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--highlight);
+      border-radius: 14px;
+      padding: 1rem 1rem 1rem 1.1rem;
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-top strong {
+      font-family: "Sora", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .timeline p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #fffefb 0%, #eefcf8 100%);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: clamp(1.2rem, 4vw, 1.8rem);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-links {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.68rem 0.82rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+      transition: border-color 220ms ease, transform 220ms ease;
+    }
+
+    .contact-links a:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    footer {
+      border-top: 1px solid rgba(215, 208, 194, 0.85);
+      padding: 1rem 0 1.6rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 550ms ease, transform 550ms ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 370px;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(var(--max-width), calc(100% - 1.4rem));
+      }
+
+      nav {
+        display: none;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white relative overflow-x-hidden">
+<body>
+  <div class="grain" aria-hidden="true"></div>
 
-<div id="tsparticles"></div>
-
-<!-- Hero Section -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-4" id="home">
-  <img src="profil.jpg" alt="Poza profil" class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-indigo-500 shadow-lg mb-6" data-aos="fade-down">
-  <h1 class="text-4xl md:text-6xl font-bold" data-aos="fade-up">Morozan Vlad-Alexandru</h1>
-  <p class="mt-4 text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">Voice & Video Administrator</p>
-  <p class="mt-2 text-md text-gray-500" data-aos="fade-up" data-aos-delay="400">CUCM, CUBE, SBC, PexIP, Networking Cisco</p>
-  <a href="#about" class="mt-10 animate-bounce text-indigo-400 hover:underline" data-aos="fade-up" data-aos-delay="600">↓ Vezi mai mult</a>
-</section>
-
-<!-- About Section -->
-<section class="max-w-4xl mx-auto px-4 py-24" id="about">
-  <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">Despre mine</h2>
-  <p class="text-gray-300 leading-relaxed text-lg" data-aos="fade-up">
-    Sunt administrator V2 specializat în soluții de comunicații unificate și infrastructură de rețea. Experiență extinsă cu sisteme Cisco, integrarea CUCM, CUBE, SBC și soluții video precum PexIP.
-  </p>
-</section>
-
-<!-- Skills Section -->
-<section class="bg-gray-800 py-24" id="skills">
-  <div class="max-w-4xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-6 text-center" data-aos="fade-up">Competențe</h2>
-    <div class="flex flex-wrap justify-center gap-3 text-sm" data-aos="fade-up" data-aos-delay="200">
-      <span class="bg-gray-700 px-4 py-2 rounded-full">CUCM</span>
-      <span class="bg-gray-700 px-4 py-2 rounded-full">Cisco CUBE</span>
-      <span class="bg-gray-700 px-4 py-2 rounded-full">SBC</span>
-      <span class="bg-gray-700 px-4 py-2 rounded-full">PexIP</span>
-      <span class="bg-gray-700 px-4 py-2 rounded-full">Routing</span>
-      <span class="bg-gray-700 px-4 py-2 rounded-full">Switching</span>
-      <span class="bg-gray-700 px-4 py-2 rounded-full">Troubleshooting</span>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#home">Morozan V.A.</a>
+      <nav>
+        <a href="#profil">Profil</a>
+        <a href="#expertiza">Expertiză</a>
+        <a href="#proiecte">Proiecte</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- Projects Section -->
-<section class="max-w-4xl mx-auto px-4 py-24" id="projects">
-  <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">Proiecte</h2>
-  <ul class="space-y-6">
-    <li data-aos="fade-up">
-      <h3 class="text-xl font-semibold">Implementare infrastructură CUCM + PexIP</h3>
-      <p class="text-gray-400">Soluție completă de comunicații video pentru 500+ utilizatori.</p>
-    </li>
-    <li data-aos="fade-up" data-aos-delay="100">
-      <h3 class="text-xl font-semibold">Migrare SBC + configurare Cisco CUBE</h3>
-      <p class="text-gray-400">Optimizare și securizare a interconectărilor VoIP.</p>
-    </li>
-  </ul>
-</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <aside class="profile-card reveal">
+          <div class="portrait-shell">
+            <img src="profil.jpg" alt="Portret Morozan Vlad-Alexandru" />
+          </div>
+          <div class="profile-meta">
+            <span><strong>Rol:</strong> Voice & Video Administrator</span>
+            <span><strong>Locație:</strong> România</span>
+            <span><strong>Focus:</strong> UC, VoIP, video collaboration</span>
+          </div>
+        </aside>
 
-<!-- Contact Section -->
-<section class="bg-gray-800 py-24" id="contact">
-  <div class="max-w-3xl mx-auto text-center px-4">
-    <h2 class="text-3xl font-bold mb-6" data-aos="fade-down">Contact</h2>
-    <div class="flex flex-col items-center space-y-4 text-lg" data-aos="fade-up" data-aos-delay="200">
-      <a href="mailto:moroanvlad13@gmail.com" class="hover:text-indigo-400">📧 moroanvlad13@gmail.com</a>
-      <a href="https://instagram.com/vladalexandrumorozan" target="_blank" class="hover:text-indigo-400">📷 @vladalexandrumorozan</a>
-      <a href="https://github.com/morozanvlad-alexandru" target="_blank" class="hover:text-indigo-400">🐙 github.com/morozanvlad-alexandru</a>
-      <a href="https://linkedin.com/in/Vlad-Alexandru Morozan" target="_blank" class="hover:text-indigo-400">🔗 Vlad-Alexandru Morozan</a>
-    </div>
-  </div>
-</section>
+        <div class="reveal">
+          <span class="eyebrow">Infrastructure & Unified Communications</span>
+          <h1>Morozan Vlad-Alexandru</h1>
+          <p class="intro">
+            Construiesc și optimizez infrastructuri de comunicații pentru echipe care au nevoie de stabilitate,
+            scalabilitate și experiență bună în apeluri voice/video, de la design până la troubleshooting avansat.
+          </p>
+          <div class="chips">
+            <span class="chip">CUCM</span>
+            <span class="chip">Cisco CUBE</span>
+            <span class="chip">SBC</span>
+            <span class="chip">PexIP</span>
+            <span class="chip">Routing & Switching</span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="#contact">Hai să colaborăm</a>
+            <a class="btn secondary" href="https://github.com/morozanvlad-alexandru" target="_blank" rel="noreferrer">Vezi GitHub</a>
+          </div>
+          <div class="stat-grid">
+            <article class="stat">
+              <strong>500+</strong>
+              <span>utilizatori într-un rollout video</span>
+            </article>
+            <article class="stat">
+              <strong>End-to-End</strong>
+              <span>implementare și operare UC</span>
+            </article>
+            <article class="stat">
+              <strong>High Availability</strong>
+              <span>orientare pe uptime și redundanță</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- Footer -->
-<footer class="text-center text-gray-600 text-sm py-6 bg-gray-900 border-t border-gray-700">
-  © 2025 Morozan Vlad-Alexandru. Toate drepturile rezervate.
-</footer>
+    <section id="profil">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Profil Profesional</h2>
+          <p>
+            Administrator V2 specializat în soluții de comunicații unificate și infrastructură de rețea,
+            cu experiență practică în integrare, migrare și optimizare pentru medii enterprise.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-  tsParticles.load("tsparticles", {
-    background: { color: "#111827" },
-    particles: {
-      number: { value: 100 },
-      size: { value: 2 },
-      move: { speed: 0.6 },
-      links: { enable: true, distance: 150, color: "#6366F1", opacity: 0.5 }
-    }
-  });
-</script>
+    <section id="expertiza">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Expertiză Tehnică</h2>
+          <p>Zonele în care aduc cel mai mare impact în proiecte voice și video.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card reveal">
+            <h3>CUCM Administration</h3>
+            <p>Provisioning, dial plan design, policy management și mentenanță în medii de producție.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Cisco CUBE</h3>
+            <p>Configurare gateway, integrare trunk-uri SIP și securizare trafic pentru interconectări externe.</p>
+          </article>
+          <article class="card reveal">
+            <h3>SBC Engineering</h3>
+            <p>Hardening, routing logic și stabilizarea sesiunilor pentru fluxuri VoIP complexe.</p>
+          </article>
+          <article class="card reveal">
+            <h3>PexIP Collaboration</h3>
+            <p>Implementare platformă video pentru meeting-uri enterprise și interoperabilitate cross-platform.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Routing & Switching</h3>
+            <p>Fundamente solide de rețea pentru QoS, segmentare și performanță predictibilă.</p>
+          </article>
+          <article class="card reveal">
+            <h3>Troubleshooting Avansat</h3>
+            <p>Analiză rapidă de incident, identificare root cause și reducerea timpului de indisponibilitate.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="proiecte">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Proiecte Relevante</h2>
+          <p>Exemple de inițiative în care am livrat rezultate măsurabile.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-top">
+              <h3>Implementare infrastructură CUCM + PexIP</h3>
+              <strong>Rollout Enterprise</strong>
+            </div>
+            <p>Soluție completă de comunicații video pentru peste 500 de utilizatori, cu integrare și onboarding etapizat.</p>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-top">
+              <h3>Migrare SBC + configurare Cisco CUBE</h3>
+              <strong>Optimizare VoIP</strong>
+            </div>
+            <p>Optimizare și securizare interconectări SIP, cu îmbunătățirea stabilității și a calității apelurilor.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box reveal">
+          <h2>Contact</h2>
+          <p>
+            Dacă ai un proiect care implică voice/video infrastructure, pot contribui cu implementare,
+            migrare sau suport operațional.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:moroanvlad13@gmail.com">Email: moroanvlad13@gmail.com</a>
+            <a href="https://instagram.com/vladalexandrumorozan" target="_blank" rel="noreferrer">Instagram: @vladalexandrumorozan</a>
+            <a href="https://github.com/morozanvlad-alexandru" target="_blank" rel="noreferrer">GitHub: github.com/morozanvlad-alexandru</a>
+            <a href="https://www.linkedin.com/in/vlad-alexandru-morozan" target="_blank" rel="noreferrer">LinkedIn: Vlad-Alexandru Morozan</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">&copy; <span id="year"></span> Morozan Vlad-Alexandru. Toate drepturile rezervate.</div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
